@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-container {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #FFFFFF;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.message-input {
+    width: 100%;
+    height: 90%;
+    padding: 0.5rem;
+    resize: none;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 12px;
+    background-color: #dcefff;
+}
+
+.post-message {
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.post-message-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: #6E00FF;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+

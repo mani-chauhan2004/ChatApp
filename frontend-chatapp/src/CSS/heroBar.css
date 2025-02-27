@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero-bar {
+    width: 100%;
+    height: 10%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.4);
+}
+
+.hero-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.connectivity {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.icons {
+    font-size: 1.5rem;
+    color: #6E00FF;
+}
+
+.display-picture {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.hero-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.bar-hero-status {
+    font-size: 0.7rem;
+    color: rgba(42, 42, 42, 0.8);
+}
