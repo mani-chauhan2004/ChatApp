@@ -1,0 +1,133 @@
+* {
+    font-family: sans-serif;
+}
+.auth-section-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.auth-section {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    border: 2px solid #9ed4ff;
+}
+
+.get-started-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(82, 82, 82);
+    font-family: 'Open Sans', sans-serif;
+}
+.get-started-description {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(79, 79, 79);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.auth-section-logo-img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.convos-text {
+    font-size: 2rem;
+    font-family: "Moon Dance", sans-serif;
+    font-weight: 900;
+    color: #6e00ff;
+}
+
+.auth-buttons {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.signup-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    border-right: 2px solid rgba(128, 128, 128, 0.3);   
+}
+
+.login-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.signup-button {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #6e00ff;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    font-weight: 600;
+    color: #6e00ff;
+    cursor: pointer;
+    
+}
+
+.login-button {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #6e00ff;
+    border: 2px solid #6e00ff;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.auth-message {
+    color: #6e00ff;
+    font-size: 0.8rem;
+}
+
+.c-bits {
+    font-size: 1rem;
+    position: relative;
+    top: 2rem;
+}
+
+.logo {
+    size: 3rem;
+    font-size: 1.4rem;
+    background-color: #6e00ff;
+    border-radius: 50%;
+    font-family: "Domine", serif;
+    padding: 0.2rem 0.4rem;
+    color: #FFFFFF;
+}
