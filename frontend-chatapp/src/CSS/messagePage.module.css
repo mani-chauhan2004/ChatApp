@@ -1,5 +1,5 @@
 
-.message-page {
+.messagePage {
     display: flex;
     border-radius: 12px;
     gap: 1rem;
@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.navbar-holder {
+.navbarHolder {
     width: 5%;
     height: 100%;
     background-color: #6E00FF;
@@ -15,7 +15,7 @@
     overflow: hidden;
 }
 
-.group-contact-holder {
+.groupContactHolder {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -25,7 +25,7 @@
     min-width: 16rem;
 }
 
-.message-window-holder {
+.messageWindowHolder {
     width: calc(70% - 2rem);
     height: 100%;
     border-radius: 18px;

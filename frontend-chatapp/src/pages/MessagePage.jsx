@@ -4,17 +4,17 @@ import MessageWindow from '../components/MessageWindow';
 import UtilityBar from '../components/UtilityBar';
 import HeroBar from '../components/HeroBar';
 import MessageForm from '../components/MessageForm';
-import '../CSS/messagePage.css';
+import styles from '../CSS/messagePage.module.css';
 function MessagePage() {
   return (
-    <div className='message-page'>
-        <div className='navbar-holder'>
+    <div className={styles.messagePage}>
+        <div className={styles.navbarHolder}>
             <UtilityBar/>
         </div>
-        <div className='group-contact-holder'>
+        <div className={styles.groupContactHolder}>
             <ContactList/>
         </div>
-        <div className='message-window-holder'>
+        <div className={styles.messageWindowHolder}>
             <HeroBar/>
             <MessageWindow/>
             <MessageForm/>

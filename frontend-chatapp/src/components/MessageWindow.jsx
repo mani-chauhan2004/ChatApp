@@ -1,5 +1,5 @@
 import {React, useState} from 'react'
-import '../CSS/messageWindow.css'
+import styles from '../CSS/messageWindow.module.css'
 import MessageContainer from './MessageContainer';
 function MessageWindow() {
   const [messageData, setMessageData] = useState([
@@ -192,7 +192,7 @@ function MessageWindow() {
   ]
   );
   return (
-    <div className='message-window-container'>
+    <div className={styles.messageWindowContainer}>
         {
           messageData.map((message, index) => {
             return <MessageContainer 

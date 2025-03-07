@@ -7,22 +7,22 @@ import { CgProfile } from "react-icons/cg";
 import { SlSettings } from "react-icons/sl";
 import { BiGroup } from "react-icons/bi";
 import { BiSolidGroup } from "react-icons/bi";
-import '../CSS/utilityBar.css';
+import styles from '../CSS/utilityBar.module.css';
 function UtilityBar() {
   return (
-    <div className='utility-bar'>
-        <div className='profile-icon-container'>
-            <CgProfile className='profile-icon utility-icons'/>
+    <div className={styles.utilityBar}>
+        <div className={'profile-icon-container'}>
+            <CgProfile className={`${styles.utilityIcons}`}/>
         </div>
 
-        <div className='utility-icons-container'>
-            <IoHomeOutline className='home-icon utility-icons'/>
-            <PiChatCircleDots className='chat-icon utility-icons'/>
-            <BiGroup className='group-chat-icon utility-icons'/>
-            <SlSettings className='settings-icon utility-icons'/>
+        <div className={styles.utilityIconsContainer}>
+            <IoHomeOutline className={`home-icon ${styles.utilityIcons}`}/>
+            <PiChatCircleDots className={`chat-icon ${styles.utilityIcons}`}/>
+            <BiGroup className={`group-chat-icon ${styles.utilityIcons}`}/>
+            <SlSettings className={`settings-icon ${styles.utilityIcons}`}/>
         </div>
-        <div className='log-out-container'>
-            <AiOutlineLogout className='log-out-icon'/>
+        <div className={'log-out-container'}>
+            <AiOutlineLogout className={styles.logoutIcon}/>
         </div>
     </div>
   )

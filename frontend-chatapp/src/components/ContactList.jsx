@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ContactBar from './ContactBar';
-import '../CSS/contactList.css'
+import styles from '../CSS/contactList.module.css'
 function ContactList() {
 
   const [contactStatus, setContactStatus] = useState([
@@ -27,11 +27,11 @@ function ContactList() {
   ]
   );
   return (
-    <div className='contact-list-container'>
-        <form className='query-form' action="">
-            <input className='search-input' type='text' placeholder='Search...' />
+    <div className={styles.contactListContainer}>
+        <form className={styles.queryForm} action="">
+            <input className={styles.searchInput} type='text' placeholder='Search...' name='search'/>
         </form>
-        <div className='contact-list'>
+        <div className={styles.contactList}>
             {
               contactStatus.map((contact, index) => {
                 return <ContactBar 

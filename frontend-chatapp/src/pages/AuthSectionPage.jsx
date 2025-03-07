@@ -1,26 +1,26 @@
 import React from 'react'
-import '../CSS/authSectionPage.css'
+import styles from '../CSS/authSectionPage.module.css'
 function AuthSectionPage() {
   return (
-    <div className='auth-section-container'>
-        <div className="auth-section">
-            <h1 className='get-started-heading'>Get Started</h1>
-            <p className='get-started-description'>Flight to million Chats and Convos ready to go. Welcome onboard...</p>
-            <div className='logo-container'>
-                <img className='auth-section-logo-img' src="./src/assets/apple-touch-icon.png" alt=""/>
-                <h1 className='convos-text'>Convos</h1>
+    <div className={styles.authSectionContainer}>
+        <div className={styles.authSection}>
+            <h1 className={styles.getStartedHeading}>Get Started</h1>
+            <p className={styles.getStartedDescription}>Flight to million Chats and Convos ready to go. Welcome onboard...</p>
+            <div className={styles.logoContainer}>
+                <img className={styles.authSectionLogoImg} src="./src/assets/apple-touch-icon.png" alt=""/>
+                <h1 className={styles.convosText}>Convos</h1>
             </div>
-            <div className="auth-buttons">
-                <div className='signup-section'>
-                    <h2 className='auth-message'>New User?</h2>
-                    <button className='signup-button'>Sign Up</button>
+            <div className={styles.authButtons}>
+                <div className={styles.signupSection}>
+                    <h2 className={styles.authMessage}>New User?</h2>
+                    <button className={styles.signupButton}>Sign Up</button>
                 </div>
-                <div className="login-section">
-                    <h2 className='auth-message'>Already a User?</h2>
-                    <button className='login-button'>Log In</button>
+                <div className={styles.loginSection}>
+                    <h2 className={styles.authMessage}>Already a User?</h2>
+                    <button className={styles.loginButton}>Log In</button>
                 </div>
             </div>
-                <h4 className='c-bits'><span className='logo'>C.</span>Bits</h4>
+                <h4 className={styles.cBits}><span className={styles.logo}>C.</span>Bits</h4>
         </div>
     </div>
   )

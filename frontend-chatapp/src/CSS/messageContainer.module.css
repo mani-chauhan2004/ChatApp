@@ -1,5 +1,5 @@
 
-.message-container {
+.messageContainer {
     max-width: 40%;
     border-radius: 12px;
     margin-bottom: 0.5rem;
@@ -9,18 +9,18 @@
     align-self: flex-end;
 }
 
-.you .message-txt{
+.you .messageTxt{
     padding: 0.5rem 1rem;
     background-color: #6E00FF;
     color: #FFFFFF;
     border-radius: 20px;
     border-top-right-radius: 3px;
 }
-.else{
+.else {
     align-self: flex-start;
 }
 
-.else .message-txt{
+.else .messageTxt{
     padding: 0.5rem 1rem;
     background-color: #F5F5F5;
     color: #000000;
@@ -28,14 +28,36 @@
     border-top-left-radius: 3px;
 }
 
-.message-txt {
+.messageTxt {
     font-size: 1rem;
     word-wrap: break-word;
 }
 
-.additional-info {
+.additionalInfo {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    font-size: 0.6rem;
     justify-content: flex-end;
 }
+
+.sent {
+    font-size: 0.8rem;
+    text-align: right;
+    stroke-width: 1;
+}
+
+.seen {
+    font-size: 0.8rem;
+    color: #6E00FF;
+    text-align: right;
+    stroke-width: 1;
+}
+
+.delivered {
+    font-size: 0.8rem;
+    text-align: right;
+    stroke-width: 1;
+}
+
+

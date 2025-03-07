@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=Domine:wght@400..700&family=Moon+Dance&family=Russo+One&display=swap');
 
 
-.page-container {
+.pageContainer {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.home-container {
+.homeContainer {
     position: relative;
     width: 80%;
     height: 100%;
@@ -21,7 +21,7 @@
     box-shadow: 2px 2px 4px #9ed4ff;
 }
 
-.hero-container {
+.heroContainer {
     width: 40%;
     height: 100%;
     display: flex;
@@ -34,14 +34,14 @@
     justify-self: flex-start;
 }
 
-.company-logo {
+.companyLogo {
     font-size: 1.2rem;
     position: absolute;
     top: 1rem;
     left: 1rem;
 }
 
-.logo-span {
+.logoSpan {
     size: 3rem;
     font-size: 2rem;
     background-color: #6e00ff;
@@ -51,7 +51,7 @@
     color: #FFFFFF;
 }
 
-.hero-text {
+.heroText {
     height: 40%;
     display: flex;
     justify-content: center;
@@ -59,7 +59,7 @@
     flex-direction: column;
 }
 
-.convos-text {
+.convosText {
     font-size: 4rem;
     font-family: "Moon Dance", sans-serif;
     font-weight: 900;
@@ -67,7 +67,7 @@
     text-align: center;
 }
 
-.powered-by {
+.poweredBy {
     font-size: 1rem;
     font-family: "Domine", serif;
     font-weight: 700;
@@ -75,7 +75,7 @@
     text-align: center;
 }
 
-.tech-stack {
+.techStack {
     width: 100%;
     height: 100%;
     display: flex;
@@ -84,14 +84,14 @@
     gap: 1rem;
 }
 
-.react-icon, .mongodb-icon, .express-icon {
+.reactIcon, .mongodbIcon, .expressIcon {
     font-size: 2rem;
     background-color: rgba(128, 128, 128, 0.4);
     border-radius: 50%;
     padding: 0.2rem;
 }
 
-.help-and-support {
+.helpAndSupport {
     font-size: 0.6rem;
     color: #6e00ff;
     margin-top: 5rem;

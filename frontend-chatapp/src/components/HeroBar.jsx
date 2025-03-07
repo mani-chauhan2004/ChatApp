@@ -3,28 +3,28 @@ import { CgProfile } from "react-icons/cg";
 import { HiOutlinePhone } from "react-icons/hi2";
 import { IoVideocamOutline } from "react-icons/io5";
 import { CiMenuKebab } from "react-icons/ci";
-import '../CSS/heroBAr.css'
+import styles from '../CSS/heroBar.module.css';
 function HeroBar({name, displayPicture, status}) {
   return (
-    <div className='hero-bar'>
-        <div className='hero-status'>
+    <div className={styles.heroBar}>
+        <div className={styles.heroStatus}>
             {
-                displayPicture? <img src={displayPicture} alt={name} className='display-picture' />:<CgProfile className='display-picture icons'/>
+                displayPicture? <img src={displayPicture} alt={name} className={styles.displayPicture} />:<CgProfile className={styles.displayPictureIcons}/>
             }
-            <div className='status-info'>
-                <h2 className='hero-name'>Alice</h2>
-                <p className='bar-hero-status'>Online</p>
+            <div >
+                <h2 className={styles.heroName}>Alice</h2>
+                <p className={styles.barHeroStatus}>Online</p>
             </div>
         </div>
-        <div className='connectivity'>
-            <div className='call-icon'>
-                <HiOutlinePhone className='call-icon-img icons'/>
+        <div className={styles.connectivity}>
+            <div>
+                <HiOutlinePhone className={styles.icons}/>
             </div>
-            <div className='video-icon'>
-                <IoVideocamOutline className='video-icon-img icons'/>
+            <div>
+                <IoVideocamOutline className={styles.icons}/>
             </div>
-            <div className='options-icon'>
-                <CiMenuKebab className='options-icon-img icons'/>
+            <div>
+                <CiMenuKebab className={styles.icons}/>
             </div>
         </div>
     </div>

@@ -1,20 +1,21 @@
 import React from 'react'
 import { LiaCheckDoubleSolid } from "react-icons/lia";
 import { LiaCheckSolid } from "react-icons/lia";
-import '../CSS/messageContainer.css'
+import styles from '../CSS/messageContainer.module.css'
 function MessageContainer({message, time, sender, status}) {
     const sentBy = sender === "you"? "you" : "else";
+    // console.log(styles);
     return (
-        <div className={`message-container ${sentBy}`}>
-            <div className='message-txt'>
+        <div className={`${styles.messageContainer} ${styles[sentBy]}`}>
+            <div className={styles.messageTxt}>
                 {message}
             </div>
-            <div className='additional-info'>
-                <div className='time'>{time}</div>
-                <div className='status'>{
-                    sentBy === "you"? status === 'sent'? <LiaCheckSolid className={`${status}`}/>:
-                    status === 'seen'? <LiaCheckDoubleSolid className={`${status}`}/>:
-                    <LiaCheckDoubleSolid className={`${status}`}/>: null
+            <div className={styles.additionalInfo}>
+                <div className={time}>{time}</div>
+                <div>{
+                    sentBy === "you"? status === 'sent'? <LiaCheckSolid className={styles[status]}/>:
+                    status === 'seen'? <LiaCheckDoubleSolid className={styles[status]}/>:
+                    <LiaCheckDoubleSolid className={styles[status]}/>: null
                 }</div>
             </div>
         </div>

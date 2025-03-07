@@ -1,5 +1,5 @@
 
-.message-window-container {
+.messageWindowContainer {
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem 0rem 2rem;
@@ -10,6 +10,6 @@
     overflow-y: scroll;
 }
 
-.message-window-container::-webkit-scrollbar {
+.messageWindowContainer::-webkit-scrollbar {
     display: none;
 }

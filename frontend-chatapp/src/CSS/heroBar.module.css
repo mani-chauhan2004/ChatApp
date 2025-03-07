@@ -1,5 +1,5 @@
 
-.hero-bar {
+.heroBar {
     width: 100%;
     height: 10%;
     background-color: #FFFFFF;
@@ -12,7 +12,7 @@
     border-bottom: 2px solid rgba(128, 128, 128, 0.4);
 }
 
-.hero-status {
+.heroStatus {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,19 +30,23 @@
     color: #6E00FF;
 }
 
-.display-picture {
+.displayPicture {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
     overflow: hidden;
 }
 
-.hero-name {
+.displayPictureIcons {
+    font-size: 3rem;
+}
+
+.heroName {
     font-size: 1.2rem;
     font-weight: 600;
 }
 
-.bar-hero-status {
+.barHeroStatus {
     font-size: 0.7rem;
     color: rgba(42, 42, 42, 0.8);
 }

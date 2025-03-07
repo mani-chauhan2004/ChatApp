@@ -1,13 +1,13 @@
 import React from 'react'
 import { VscSend } from "react-icons/vsc";
-import '../CSS/messageForm.css'
+import styles from '../CSS/messageForm.module.css'
 function MessageForm() {
   return (
-      <form className='form-container'>
-        <input type='text' placeholder='Type your message...' className='message-input' />
-        <button className='post-message' type='submit'><VscSend className='post-message-icon'/></button>
+      <form className={styles.formContainer}>
+        <input type='text' name='typeMessage' placeholder='Type your message...' className={styles.messageInput} />
+        <button className={styles.postMessage} type='submit'><VscSend className={styles.postMessageIcon}/></button>
       </form>
-  )
+  );
 }
 
 export default MessageForm;
