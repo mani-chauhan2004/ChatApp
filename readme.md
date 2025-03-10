@@ -27,7 +27,7 @@ nodemon index.js
 ## Environment Variables (.env )
 
 ```bash
-PORT=<Port to run backend. Defaul 8080>
+PORT=<Port to run backend. Default 8080 >
 MONGO_URI=<Your MONGODB connection String here>
 JWT_SECRET=<Your JWT_SECRET here>
 ```
