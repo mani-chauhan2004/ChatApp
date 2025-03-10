@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { IoIosSearch } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
 import ContactBar from './ContactBar';
 import styles from '../CSS/contactList.module.css'
 function ContactList() {
@@ -31,6 +33,10 @@ function ContactList() {
         <form className={styles.queryForm} action="">
             <input className={styles.searchInput} type='text' placeholder='Search...' name='search'/>
         </form>
+        <div className={styles.menuIcon}>
+            <RxHamburgerMenu />
+            <IoIosSearch />
+        </div>
         <div className={styles.contactList}>
             {
               contactStatus.map((contact, index) => {

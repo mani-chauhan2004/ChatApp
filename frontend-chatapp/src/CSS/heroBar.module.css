@@ -19,10 +19,22 @@
     gap: 0.5rem;
 }
 
+.backIcon {
+    cursor: pointer;
+    font-size: 2rem;
+    color: rgba(42, 42, 42, 0.8);
+    display: none;
+}
+
 .connectivity {
     display: flex;
     align-items: center;
     gap: 2rem;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .icons {
@@ -49,4 +61,11 @@
 .barHeroStatus {
     font-size: 0.7rem;
     color: rgba(42, 42, 42, 0.8);
+}
+
+@media screen and (max-width: 792px) {
+
+    .backIcon {
+        display: block;
+    }
 }

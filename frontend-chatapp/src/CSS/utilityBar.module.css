@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .utilityBar {
     width: 100%;
@@ -20,8 +25,9 @@
 }
 
 .utilityIcons, .logoutIcon {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: #FFFFFF;
     stroke-width: 0.2;
 }
+
 

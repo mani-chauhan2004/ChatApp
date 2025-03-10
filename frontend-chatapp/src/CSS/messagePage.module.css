@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .messagePage {
     display: flex;
@@ -8,7 +13,7 @@
 }
 
 .navbarHolder {
-    width: 5%;
+    width: 6%;
     height: 100%;
     background-color: #6E00FF;
     border-radius: 12px;
@@ -22,11 +27,30 @@
     width: 25%;
     height: 100%;
     border-radius: 12px;
-    min-width: 16rem;
+    min-width: 20rem;
 }
 
 .messageWindowHolder {
-    width: calc(70% - 2rem);
+    width: 100%;
     height: 100%;
     border-radius: 18px;
+}
+
+@media screen and (max-width: 1200px) {
+    .navbarHolder {
+        width: 8%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .navbarHolder {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 792px) {
+    .groupContactHolder {
+        display: none;
+    }
 }

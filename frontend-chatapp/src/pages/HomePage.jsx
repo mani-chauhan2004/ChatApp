@@ -5,6 +5,7 @@ import SignupPage from './SignupPage';
 import { FaReact } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { SiExpress } from "react-icons/si";
+import LoginPage from './LoginPage';
 
 function HomePage() {
   return (
@@ -26,7 +27,7 @@ function HomePage() {
                 </div>
                 <div className={styles.helpAndSupport}><p>Help and Support</p></div>
             </div>
-            <AuthSectionPage />
+            <SignupPage />
         </div>
     </div>
   )

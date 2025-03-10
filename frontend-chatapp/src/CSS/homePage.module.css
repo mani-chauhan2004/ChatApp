@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=Domine:wght@400..700&family=Moon+Dance&family=Russo+One&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .pageContainer {
     width: 100%;
@@ -97,3 +102,16 @@
     margin-top: 5rem;
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 1024px) {
+   .heroContainer {
+         display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .homeContainer {
+          width: 100%;
+     }
+ }

@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .contactListContainer {
     display: flex;
@@ -14,6 +19,15 @@
     background-color: #FFFFFF;
     border-radius: 12px;
     box-shadow: 2px 2px 4px #9ed4ff;
+}
+
+.menuIcon {
+    display: none;
+    font-size: 2rem;
+    color: rgb(82, 82, 82);
+    background-color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 12px;
 }
 
 .searchInput {
@@ -36,5 +50,19 @@
 
 .contactList::-webkit-scrollbar{
     display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .queryForm {
+        display: none;
+    }
+
+    .menuIcon {
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 2rem;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
