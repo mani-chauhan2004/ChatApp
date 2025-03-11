@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { SlOptionsVertical } from "react-icons/sl";
+import axios from 'axios';
 import styles from '../CSS/forgotPasswordPage.module.css'
 function ForgotPasswordPage() {
     const [formData, setFormData] = React.useState({
@@ -12,7 +13,7 @@ function ForgotPasswordPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+        const response = await axios.post('http://localhost:8080/auth/api/forgot-password/', formData);
         setFormData({
             email: ''
         });
@@ -35,7 +36,7 @@ function ForgotPasswordPage() {
               value={formData.email}
               placeholder='Email'
           />
-          <button className={styles.forgotPasswordButton}>Send Reset Code</button>
+          <button type="submit" className={styles.forgotPasswordButton}>Send Reset Code</button>
           <p className={styles.companyLogo}><span className={styles.logoSpan}>C.</span>Bits</p>
         </form>
       </div>

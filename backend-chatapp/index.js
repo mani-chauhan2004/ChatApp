@@ -6,6 +6,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import nodemailer from 'nodemailer';
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,7 @@ const io = new Server(httpServer, {
     }
 });
 
+
 app.use(cors(
     {
         origin: "http://localhost:5173",
@@ -33,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/auth/api', authRoutes);
+
 
 app.get('/', (req, res) => {
     res.status(200).send("Connected to server");

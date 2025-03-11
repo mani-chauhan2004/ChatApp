@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { SlOptionsVertical } from "react-icons/sl";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../CSS/signupPage.module.css'
 function SignupPage() {
@@ -11,6 +11,8 @@ function SignupPage() {
     password: '',
     confirmPassword: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -35,6 +37,7 @@ function SignupPage() {
         password: '',
         confirmPassword: ''
       })
+      navigate('/login');
     }catch(error){
       console.error(error);
     }
