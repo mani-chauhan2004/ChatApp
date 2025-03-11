@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SlOptionsVertical } from "react-icons/sl";
+import { Link } from 'react-router-dom';
 import styles from '../CSS/loginPage.module.css';
 import axios from 'axios';
 function LoginPage() {
@@ -52,10 +53,10 @@ function LoginPage() {
             placeholder='Password'
         />
         <div className={styles.forgotPassword}>
-            <p className={styles.forgotPasswordLink}>Forgot Password?</p>
+            <p className={styles.forgotPasswordLink}><Link to='/forgot-password'>Forgot Password?</Link></p>
         </div>
         <div className={styles.signupMessage}>
-            <p className={styles.signupQuestion}>Don't have an account? <span className={styles.signupLink}>Signup</span></p>
+            <p className={styles.signupQuestion}>Don't have an account? <Link to="/signup"><span className={styles.signupLink}>Signup</span></Link></p>
         </div>
         <button type='submit' className={styles.loginButton}>Login</button>
         <p className={styles.companyLogo}><span className={styles.logoSpan}>C.</span>Bits</p>

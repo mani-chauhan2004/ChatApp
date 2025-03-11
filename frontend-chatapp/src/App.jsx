@@ -14,7 +14,7 @@ function App() {
     },[]);
     return (
         <div className='app-container'>
-            < MessagePage/>
+            < HomePage/>
         </div>
     )
 }

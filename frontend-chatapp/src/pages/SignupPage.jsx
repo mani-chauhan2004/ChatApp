@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { SlOptionsVertical } from "react-icons/sl";
-import styles from '../CSS/signupPage.module.css'
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styles from '../CSS/signupPage.module.css'
 function SignupPage() {
 
   const [formData, setFormData] = useState({
@@ -81,7 +82,7 @@ function SignupPage() {
             placeholder='Confirm Password'
         />
         <div className={styles.loginMessage}>
-            <p className={styles.loginQuestion}>Already have an account? <span className={styles.loginLink}>Login</span></p>
+            <p className={styles.loginQuestion}>Already have an account? <Link to='/login'> <span className={styles.loginLink}>Login</span></Link></p>
         </div>
         <button type='submit' className={styles.signupButton}>Sign Up</button>
         <p className={styles.companyLogo}><span className={styles.logoSpan}>C.</span>Bits</p>

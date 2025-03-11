@@ -14,6 +14,7 @@
 }
 
 .authSection {
+    position: relative;
     width: 70%;
     height: 80%;
     display: flex;
@@ -23,6 +24,19 @@
     background-color: #FFFFFF;
     border-radius: 18px;
     border: 2px solid #9ed4ff;
+}
+
+.optionsIcon {
+    display: none;
+    color: rgb(82, 82, 82);
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: all 0.4s ease-in-out;
+}
+
+.optionsIcon:active {
+    scale: 0.8;
 }
 
 .getStartedHeading {
@@ -100,7 +114,16 @@
     font-weight: 600;
     color: #6e00ff;
     cursor: pointer;
-    
+    transition: all 0.4s ease-in-out;
+}
+
+.signupButton:hover {
+    background-color: #6e00ff;
+    color: #FFFFFF;
+}
+
+.signupButton:active {
+    transform: scale(0.9);
 }
 
 .loginButton {
@@ -112,6 +135,17 @@
     font-weight: 600;
     color: #FFFFFF;
     cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+
+.loginButton:hover {
+    background-color: #FFFFFF;
+    color: #6e00ff;
+}
+
+.loginButton:active {
+    transform: scale(0.9);
 }
 
 .authMessage {
@@ -133,4 +167,46 @@
     font-family: "Domine", serif;
     padding: 0.2rem 0.4rem;
     color: #FFFFFF;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .authSection {
+        width: 75%;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+    
+    .authSection {
+        width: 80%;
+    }
+
+    .optionsIcon {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1rem;
+    }
+}
+
+@media only screen and (max-width: 576px) { 
+
+    .authSection {
+        width: 90%;
+    }
+
+    .authButtons {
+        flex-direction: column;
+    }
+    
+    .signupSection {
+        border-right: none;
+    }
+
+    .signupButton, .loginButton {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
 }

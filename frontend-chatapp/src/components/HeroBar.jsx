@@ -4,12 +4,13 @@ import { HiOutlinePhone } from "react-icons/hi2";
 import { IoVideocamOutline } from "react-icons/io5";
 import { CiMenuKebab } from "react-icons/ci";
 import { IoMdArrowBack } from "react-icons/io";
+import { Link } from 'react-router-dom';
 import styles from '../CSS/heroBar.module.css';
 function HeroBar({name, displayPicture, status}) {
   return (
     <div className={styles.heroBar}>
         <div className={styles.heroStatus}>
-            <IoMdArrowBack className={styles.backIcon}/>
+            <Link to='/'><IoMdArrowBack className={styles.backIcon}/></Link>
             {       
                 displayPicture? <img src={displayPicture} alt={name} className={styles.displayPicture} />:<CgProfile className={styles.displayPictureIcons}/>
             }

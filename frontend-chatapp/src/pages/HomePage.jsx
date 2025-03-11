@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from '../CSS/homePage.module.css';
-import AuthSectionPage from './AuthSectionPage';
-import SignupPage from './SignupPage';
+import { Outlet } from 'react-router-dom';
 import { FaReact } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { SiExpress } from "react-icons/si";
+import styles from '../CSS/homePage.module.css';
+import AuthSectionPage from './AuthSectionPage';
+import SignupPage from './SignupPage';
 import LoginPage from './LoginPage';
 
 function HomePage() {
@@ -27,7 +28,7 @@ function HomePage() {
                 </div>
                 <div className={styles.helpAndSupport}><p>Help and Support</p></div>
             </div>
-            <SignupPage />
+            <Outlet/>
         </div>
     </div>
   )
