@@ -44,3 +44,9 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 792px){
+    .formContainer {
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+}

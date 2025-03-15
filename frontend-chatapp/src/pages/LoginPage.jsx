@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { SlOptionsVertical } from "react-icons/sl";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../CSS/loginPage.module.css';
 import axios from 'axios';
 function LoginPage() {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -23,6 +25,7 @@ function LoginPage() {
         email: '',
         password: '',
       });
+      navigate('/messages');
     }catch(error) {
       console.log(error);
     }

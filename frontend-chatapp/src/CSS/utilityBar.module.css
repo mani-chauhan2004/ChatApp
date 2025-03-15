@@ -30,4 +30,16 @@
     stroke-width: 0.2;
 }
 
+@media screen  and ( max-width: 792px ) {
+    .utilityIcons, .logoutIcon {
+        font-size: 2.6rem;
+    }
+}
+
+@media screen  and ( max-width: 792px ) {
+    .utilityIcons, .logoutIcon {
+        font-size: 2.4rem;
+    }
+}
+
 

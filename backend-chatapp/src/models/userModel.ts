@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
         validate: {
-            validator: function(value) {
+            validator: function(value: string): boolean {
                 return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
             },
             message: 'Invalid email format'
@@ -28,5 +28,5 @@ const userSchema = new mongoose.Schema({
     }]
 }, { timestamps: true });
 
-const User = new mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 export default User;

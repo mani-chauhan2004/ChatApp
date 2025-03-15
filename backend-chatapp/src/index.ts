@@ -1,15 +1,15 @@
-import express from 'express';
+import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { Server } from 'socket.io';
 import { createServer } from 'http';
-import connectDB from './config/db.js';
-import authRoutes from './routes/authRoutes.js';
+import connectDB from './config/db';
+import authRoutes from './routes/authRoutes';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import nodemailer from 'nodemailer';
 
 dotenv.config();
-const app = express();
+const app: Application = express();
 app.use(cookieParser());
 const port = process.env.PORT || 8080;
 
@@ -37,7 +37,7 @@ app.use(express.json());
 app.use('/auth/api', authRoutes);
 
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
     res.status(200).send("Connected to server");
 })
 

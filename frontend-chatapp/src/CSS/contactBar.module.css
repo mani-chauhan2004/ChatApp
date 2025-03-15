@@ -79,3 +79,31 @@
     font-size: 0.9rem;
     color: #6E00FF;
 }
+
+@media screen and (max-width: 768px) {
+    .contactBar {
+        height: 4.5rem;
+    }
+
+    .contactName {
+        font-size: 1.3rem;
+    }
+
+    .lastMessage {
+        font-size: 0.8rem;
+    }
+    
+    .lastMessageTime {
+        font-size: 0.7rem;
+    }
+    
+    .unreadMessage {
+        height: 1.1rem;
+        width: 1.1rem;
+        font-size: 0.7rem;
+    }
+    
+    .messageSent, .delivered, .seen {
+        font-size: 0.9rem;
+    }
+}
