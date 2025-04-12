@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    // _id: mongoose.Schema.Types.ObjectId,
+    _id: mongoose.Schema.Types.ObjectId,
     username: {
         type: String,
         required: true,
@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
             message: 'Invalid email format'
         }
     },
+    dp: {
+        type: String,
+        default: null,
+    },
     password: {
         type: String,
         required: true
@@ -25,7 +29,11 @@ const userSchema = new mongoose.Schema({
     friends: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }]
+    }], 
+    online: {
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

@@ -11,6 +11,7 @@ import AuthSectionPage from './pages/AuthSectionPage.jsx';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
 import ChangePasswordPage from './pages/ChangePasswordPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+import AddProfilePhotoPage from './pages/AddProfilePhotoPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')).render(
           <Route path='/' element={<HomePage/>}>
             <Route index element={<AuthSectionPage/>}/>
             <Route path='signup' element={<SignupPage/>}/>
+            <Route path='profile-photo' element={<AddProfilePhotoPage/>} />
             <Route path='login' element={<LoginPage/>}/>
             <Route path='forgot-password' element={ <ForgotPasswordPage/> }/>
             <Route path='change-password' element={ <ChangePasswordPage/> }/>

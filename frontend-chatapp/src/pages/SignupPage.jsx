@@ -37,7 +37,7 @@ function SignupPage() {
         password: '',
         confirmPassword: ''
       })
-      navigate('/login');
+      navigate('/profile-photo');
     }catch(error){
       console.error(error);
     }
