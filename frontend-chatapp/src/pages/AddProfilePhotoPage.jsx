@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 import { CgProfile } from "react-icons/cg";
+import { MdPermIdentity } from "react-icons/md";
 import styles from '../CSS/AddProfilePhotoPage.module.css'
+import { useNavigate } from 'react-router';
+import axios from 'axios';
 function AddProfilePhotoPage() {
-
-    const [profilePhoto, setProfilePhoto] = useState('');
+    const navigate = useNavigate();
+    const [profilePhoto, setProfilePhoto] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const formData = new FormData();
             formData.append('profileImage', profilePhoto);
-            const response = await axios.post('http://localhost:8080/upload/api/profile-photo', formData, {
+            const response = await axios.post('http://localhost:8080/upload/api/profile-image', formData, {
                 withCredentials: true,
             });
             console.log(response);
+            navigate('/messages');
         }catch(error) {
             console.error(error);
             alert('Failed to upload profile photo');
@@ -26,16 +30,20 @@ function AddProfilePhotoPage() {
                 <h1 className={styles.heading}>Add Profile Photo</h1>
                 <label 
                     htmlFor="profileImage"
-                >
-                    <CgProfile className={styles.imagePlaceHolder}/>
+                    className={styles.imageLabel}
+                >   
+                    {
+                        profilePhoto === null? <MdPermIdentity className={styles.imagePlaceHolder}/>: 
+                        <img src={URL.createObjectURL(profilePhoto)} className={styles.uploadedImage} alt="" />
+                    }
                 </label>
                 <input 
                     type="file" 
-                    hidden id="profileImage" 
+                    hidden 
+                    id="profileImage" 
                     name="profileImage" 
                     accept="image/*" 
-                    value={profilePhoto}
-                    onChange={(e=> setProfilePhoto(e.target.value))}
+                    onChange={(e=> setProfilePhoto(e.target.files[0]))}
                 />
                 <button type='submit' className={styles.updatePhotoButton}>Update Profile Photo</button>
             </form>

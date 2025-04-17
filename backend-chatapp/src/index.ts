@@ -6,7 +6,6 @@ import connectDB from './config/db';
 import authRoutes from './routes/authRoutes';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import nodemailer from 'nodemailer';
 import uploadRoutes from './routes/uploadRoutes'
 
 dotenv.config();

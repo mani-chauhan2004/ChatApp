@@ -46,3 +46,7 @@ jest/
 
 # Windows system files
 Thumbs.db
+
+
+#upload folder
+src/uploads

@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contactListHolder {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    overflow-y: scroll;
+    padding-top: 0.3em;
+}
+
+.contactListHolder::-webkit-scrollbar {
+    display: none;
+}
+
+.utilityBarHolder {
+    width: 10%;
+    background: #6e00ff;
+    height: 100%;
+}
+
+@media screen and (min-width: 564px) {
+    .utilityBarHolder {
+        max-width: 4em;
+    }
+}
+
+@media screen and (max-width: 564px) {
+    .utilityBarHolder {
+        display: none;
+    }
+}

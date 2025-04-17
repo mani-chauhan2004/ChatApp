@@ -12,6 +12,7 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
 import ChangePasswordPage from './pages/ChangePasswordPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import AddProfilePhotoPage from './pages/AddProfilePhotoPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='forgot-password' element={ <ForgotPasswordPage/> }/>
             <Route path='change-password' element={ <ChangePasswordPage/> }/>
           </Route>
+          <Route path='contacts' element={<ContactPage/>}/>
           <Route path='messages' element={<MessagePage/>}/>
           <Route path='*' element={ <NotFoundPage/> }/>
       </Routes>

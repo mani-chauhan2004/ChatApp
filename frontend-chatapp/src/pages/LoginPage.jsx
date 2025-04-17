@@ -3,10 +3,12 @@ import { SlOptionsVertical } from "react-icons/sl";
 import { Link, useNavigate } from 'react-router-dom';
 import styles from '../CSS/loginPage.module.css';
 import axios from 'axios';
+import { useMediaQuery } from 'react-responsive'
 function LoginPage() {
-
   const navigate = useNavigate();
-
+  const isMobile = useMediaQuery({
+    query: '(max-width: 792px)'
+  });
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -25,7 +27,7 @@ function LoginPage() {
         email: '',
         password: '',
       });
-      navigate('/messages');
+      isMobile? navigate('/contacts'): navigate('/messages');
     }catch(error) {
       console.log(error);
     }
