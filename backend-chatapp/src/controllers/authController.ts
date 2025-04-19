@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
+import { getSocketInstance } from '../utils/socket';
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -75,13 +76,20 @@ export const login = async (req: Request, res: Response): Promise<void> => {
             httpOnly: true, 
             secure: true,
             sameSite: 'strict'
-        });
-        res.status(200).json({ message: 'LoggedIn successfully'});
+        }); 
+        const io = getSocketInstance();
+        io.emit('userLoggedIn', { message: "User Logged In" });
+        res.status(200).json({userId: user._id, message: 'LoggedIn successfully'});
     }catch(error) {
         console.log(error);
         res.status(500).json({ message: 'Something went wrong' });
     }
     return;
+}
+
+export const logout = (req: Request, res: Response) => {
+    res.clearCookie('token');
+    res.status(200).json({ message: "Logged out successfully"});
 }
 
 export const sendChangePasswordEmail = async (req: Request, res: Response): Promise<void> => {

@@ -6,7 +6,9 @@ import connectDB from './config/db';
 import authRoutes from './routes/authRoutes';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import uploadRoutes from './routes/uploadRoutes'
+import uploadRoutes from './routes/uploadRoutes';
+import { createSocketInstance } from './utils/socket';
+import userRoutes from "./routes/userRoutes"
 
 dotenv.config();
 const app: Application = express();
@@ -36,15 +38,14 @@ app.use(express.json());
 
 app.use('/auth/api', authRoutes);
 app.use('/upload/api', uploadRoutes);
+app.use('/user/api', userRoutes);
 
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).send("Connected to server");
 })
 
-io.on("connection", (socket) => {
-    console.log(`${socket.id} connected to the server`);
-});
+createSocketInstance(io);
 
 connectDB();
 httpServer.listen(port, () => {

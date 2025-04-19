@@ -13,25 +13,29 @@ import ChangePasswordPage from './pages/ChangePasswordPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import AddProfilePhotoPage from './pages/AddProfilePhotoPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import { Provider } from 'react-redux'
+import store from './redux/store.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <StrictMode>
-      <Routes>
-        <Route path="/" element={<App />} />
-          <Route path='/' element={<HomePage/>}>
-            <Route index element={<AuthSectionPage/>}/>
-            <Route path='signup' element={<SignupPage/>}/>
-            <Route path='profile-photo' element={<AddProfilePhotoPage/>} />
-            <Route path='login' element={<LoginPage/>}/>
-            <Route path='forgot-password' element={ <ForgotPasswordPage/> }/>
-            <Route path='change-password' element={ <ChangePasswordPage/> }/>
-          </Route>
-          <Route path='contacts' element={<ContactPage/>}/>
-          <Route path='messages' element={<MessagePage/>}/>
-          <Route path='*' element={ <NotFoundPage/> }/>
-      </Routes>
-    </StrictMode>
-  </BrowserRouter>
+  <StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />} />
+              <Route path='/' element={<HomePage/>}>
+                  <Route index element={<AuthSectionPage/>}/>
+                  <Route path='signup' element={<SignupPage/>}/>
+                  <Route path='profile-photo' element={<AddProfilePhotoPage/>} />
+                  <Route path='login' element={<LoginPage/>}/>
+                  <Route path='forgot-password' element={ <ForgotPasswordPage/> }/>
+                  <Route path='change-password' element={ <ChangePasswordPage/> }/>
+              </Route>
+              <Route path='contacts' element={<ContactPage/>}/>
+              <Route path='messages' element={<MessagePage/>}/>
+              <Route path='*' element={ <NotFoundPage/> }/>
+            </Routes>
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>
   
 )

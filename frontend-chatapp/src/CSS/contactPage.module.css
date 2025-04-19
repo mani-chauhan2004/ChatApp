@@ -12,7 +12,6 @@
     justify-content: center;
     gap: 1em;
     overflow-y: scroll;
-    padding-top: 0.3em;
 }
 
 .contactListHolder::-webkit-scrollbar {

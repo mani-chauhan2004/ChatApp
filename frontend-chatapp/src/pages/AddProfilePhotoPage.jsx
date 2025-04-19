@@ -16,11 +16,9 @@ function AddProfilePhotoPage() {
             const response = await axios.post('http://localhost:8080/upload/api/profile-image', formData, {
                 withCredentials: true,
             });
-            console.log(response);
-            navigate('/messages');
+            navigate('/login');
         }catch(error) {
             console.error(error);
-            alert('Failed to upload profile photo');
         }
     }
 
@@ -46,6 +44,7 @@ function AddProfilePhotoPage() {
                     onChange={(e=> setProfilePhoto(e.target.files[0]))}
                 />
                 <button type='submit' className={styles.updatePhotoButton}>Update Profile Photo</button>
+                <button onClick={() => navigate('/login')} className={styles.skipButton}>Skip</button>
             </form>
         </div>
     )

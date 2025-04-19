@@ -78,4 +78,4 @@ function ChangePasswordPage() {
     )
 }
 
-export default ChangePasswordPage
+export default ChangePasswordPage;

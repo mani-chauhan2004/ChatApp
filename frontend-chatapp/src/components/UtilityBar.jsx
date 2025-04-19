@@ -8,11 +8,31 @@ import { SlSettings } from "react-icons/sl";
 import { BiGroup } from "react-icons/bi";
 import { BiSolidGroup } from "react-icons/bi";
 import styles from '../CSS/utilityBar.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
+import axios from 'axios';
+import { nullifyDp } from '../redux/features/userSlice';
 function UtilityBar() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const profileImage = useSelector(state => state.user.dp);
+  const handleLogout = async() => {
+    try {
+      const response = await axios.post("http://localhost:8080/auth/api/logout", { withCredentials: true });
+      console.log(response.data);
+      dispatch(() => nullifyDp());
+      navigate('/login', { replace: true });
+    }catch(error) {
+      console.log(error);
+    }
+    return;
+  }
   return (
     <div className={styles.utilityBar}>
         <div className={'profile-icon-container'}>
-            <CgProfile className={`${styles.utilityIcons}`}/>
+            {
+              profileImage? <img className={styles.profileImage} src={profileImage} alt="dp" /> : <CgProfile className={`${styles.utilityIcons}`}/>
+            }
         </div>
 
         <div className={styles.utilityIconsContainer}>
@@ -22,10 +42,13 @@ function UtilityBar() {
             <SlSettings className={`settings-icon ${styles.utilityIcons}`}/>
         </div>
         <div className={'log-out-container'}>
-            <AiOutlineLogout className={styles.logoutIcon}/>
+            <AiOutlineLogout
+              onClick={handleLogout} 
+              className={styles.logoutIcon}
+            />
         </div>
     </div>
   )
 }
 
-export default UtilityBar
+export default UtilityBar;

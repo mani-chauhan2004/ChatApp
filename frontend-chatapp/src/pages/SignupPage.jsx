@@ -30,7 +30,6 @@ function SignupPage() {
         return;
       }
       const response = await axios.post('http://localhost:8080/auth/api/signup', formData);
-      console.log(response);
       setFormData({
         username: '', 
         email: '',
