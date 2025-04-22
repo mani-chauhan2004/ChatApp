@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoHomeOutline } from "react-icons/io5";
 import { PiChatCircleDotsFill } from "react-icons/pi";
 import { PiChatCircleDots } from "react-icons/pi";
@@ -9,18 +9,26 @@ import { BiGroup } from "react-icons/bi";
 import { BiSolidGroup } from "react-icons/bi";
 import styles from '../CSS/utilityBar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { nullifyDp } from '../redux/features/userSlice';
-function UtilityBar() {
+import { isAuthenticatedFalse } from '../redux/features/authSlice';
+function UtilityBar() { 
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const profileImage = useSelector(state => state.user.dp);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const [active, setActive] = useState(location.pathname);
   const handleLogout = async() => {
     try {
-      const response = await axios.post("http://localhost:8080/auth/api/logout", { withCredentials: true });
+      const response = await axios.post("http://localhost:8080/auth/api/logout", {}, { withCredentials: true });
       console.log(response.data);
-      dispatch(() => nullifyDp());
+      dispatch(nullifyDp());
+      localStorage.clear();
+      sessionStorage.clear();
+      dispatch(isAuthenticatedFalse());
       navigate('/login', { replace: true });
     }catch(error) {
       console.log(error);
@@ -36,10 +44,10 @@ function UtilityBar() {
         </div>
 
         <div className={styles.utilityIconsContainer}>
-            <IoHomeOutline className={`home-icon ${styles.utilityIcons}`}/>
-            <PiChatCircleDots className={`chat-icon ${styles.utilityIcons}`}/>
-            <BiGroup className={`group-chat-icon ${styles.utilityIcons}`}/>
-            <SlSettings className={`settings-icon ${styles.utilityIcons}`}/>
+            {/* <IoHomeOutline className={`home-icon ${styles.utilityIcons}`}/> */}
+            <Link className={active=='/messages'? styles.activeLink: styles.link} to={'/messages'} onClick={() => setActive('/messages')}><PiChatCircleDots className={active == '/messages'?`chat-icon ${styles.utilityIcons} ${styles.utilityIconsClicked}`: `chat-icon ${styles.utilityIcons}` }/></Link>
+            <Link className={active=='/messages/friends'? styles.activeLink: styles.link} to={'friends'} onClick={() => setActive('/messages/friends')}><BiGroup className={active == '/messages/friends'?`group-chat-icon ${styles.utilityIcons} ${styles.utilityIconsClicked}`: `group-chat-icon ${styles.utilityIcons}`}/></Link>
+            <SlSettings  className={`settings-icon ${styles.utilityIcons}`}/>
         </div>
         <div className={'log-out-container'}>
             <AiOutlineLogout

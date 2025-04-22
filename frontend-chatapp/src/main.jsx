@@ -13,8 +13,15 @@ import ChangePasswordPage from './pages/ChangePasswordPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import AddProfilePhotoPage from './pages/AddProfilePhotoPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import AddFriendPage from './pages/AddFriendPage.jsx';
 import { Provider } from 'react-redux'
 import store from './redux/store.jsx';
+import ContactList from './components/ContactList.jsx';
+import FriendList from './components/FriendList.jsx';
+import ChatSection from './components/ChatSection.jsx';
+import FriendsSection from './components/FriendsSection.jsx';
+import ProtectedRoutes from './components/ProtectedRoutes.jsx';
+import UnauthorisedPage from './pages/UnauthorisedPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,13 +32,35 @@ createRoot(document.getElementById('root')).render(
               <Route path='/' element={<HomePage/>}>
                   <Route index element={<AuthSectionPage/>}/>
                   <Route path='signup' element={<SignupPage/>}/>
-                  <Route path='profile-photo' element={<AddProfilePhotoPage/>} />
+                  <Route path='profile-photo' element={
+                    <ProtectedRoutes>
+                      <AddProfilePhotoPage/>
+                    </ProtectedRoutes>} 
+                  />
                   <Route path='login' element={<LoginPage/>}/>
                   <Route path='forgot-password' element={ <ForgotPasswordPage/> }/>
                   <Route path='change-password' element={ <ChangePasswordPage/> }/>
+                  <Route path='add-friend' element={
+                    <ProtectedRoutes>
+                      <AddFriendPage/>
+                    </ProtectedRoutes>}/>
               </Route>
-              <Route path='contacts' element={<ContactPage/>}/>
-              <Route path='messages' element={<MessagePage/>}/>
+              <Route path='contacts' element={
+                <ProtectedRoutes>
+                  <ContactPage/>
+                </ProtectedRoutes>}/>
+              <Route path='/messages' element={
+                <ProtectedRoutes>
+                  <MessagePage/>
+                </ProtectedRoutes>}>
+                  <Route index element={
+                      <ChatSection/>
+                  }/>
+                  <Route path='friends' element={
+                      <FriendsSection/>
+                  }/>
+              </Route>
+              <Route path='/unauthorised' element={ <UnauthorisedPage/> }/>
               <Route path='*' element={ <NotFoundPage/> }/>
             </Routes>
       </BrowserRouter>

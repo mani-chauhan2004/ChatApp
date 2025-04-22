@@ -7,6 +7,8 @@ import MessageForm from '../components/MessageForm';
 import styles from '../CSS/messagePage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDp } from '../redux/features/userSlice';
+import FriendList from '../components/FriendList';
+import { Outlet } from 'react-router';
 function MessagePage() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,14 +19,7 @@ function MessagePage() {
         <div className={styles.navbarHolder}>
             <UtilityBar/>
         </div>
-        <div className={styles.groupContactHolder}>
-            <ContactList/>
-        </div>
-        <div className={styles.messageWindowHolder}>
-            <HeroBar/>
-            <MessageWindow/>
-            <MessageForm/>
-        </div>
+        <Outlet/>
     </div>
   )
 }

@@ -26,9 +26,9 @@ export const uploadProfilePhoto = async (req: Request, res: Response) => {
         });
         return;
     }
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { id: string, email?: string };
-    const userID = decoded.id;
     try{
+        const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { id: string, email?: string };
+        const userID = decoded.id;
         const uploadData = await cloudinary.uploader.upload(filePath);
         console.log(uploadData);
         res.status(200).json({message: "File Uploaded Successfully"});
@@ -41,8 +41,11 @@ export const uploadProfilePhoto = async (req: Request, res: Response) => {
             }
         });
         const savedUser = await User.findByIdAndUpdate(userID, { dp: uploadData.secure_url });
-    }catch(error) {
-        console.log(error);
+    }catch(error: any) {
+        if(error.name === 'TokenExpiredError') {
+            res.status(402).json({ error: "Unverified auth detected. Please login again to continue" });
+            return;
+        }
         res.send("Unexpected error occoured while uploading. Please try again");
     }
 }

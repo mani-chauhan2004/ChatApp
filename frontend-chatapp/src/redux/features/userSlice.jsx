@@ -1,25 +1,29 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const loginUser = createAsyncThunk('user/loginUser', () => {
-    return axios.post("http://localhost:8080/auth/api/login", {
-        withCredentials: true,
-    })
-});
-
-export const getDp = createAsyncThunk('user/getDp', async(loggedInUser) => {
+export const getDp = createAsyncThunk('user/getDp', async() => {
     const response = await axios.get("http://localhost:8080/user/api/send-dp",{
         withCredentials: true,
     });
     return response.data;
 });
 
+export const getFriends = createAsyncThunk('user/getFriends', async() => {
+    const response = await axios.get("http://localhost:8080/user/api/get-friends", {
+        withCredentials: true,
+    });
+
+    return response.data;
+})
+
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        loading: false,
+        loadingDp: false,
+        loadingFriends: false,
         dp: null,
         loggedInUser: null,
+        friends: [],
         error: null,
     },
 
@@ -33,31 +37,36 @@ const userSlice = createSlice({
     },
 
     extraReducers: (builder) => {
-        builder.addCase(loginUser.pending, (state) => {
-            state.loading = true;
-        });
-        builder.addCase(loginUser.fulfilled, (state, action) => {
-            console.log(action.payload);
-        });
-        builder.addCase(loginUser.rejected, (state, action) => {
-            state.error = action.payload;
-        });
 
         builder.addCase(getDp.pending, (state) => {
-            state.loading = true;
+            state.loadingDp = true;
         });
         builder.addCase(getDp.fulfilled, (state, action) => {
-            state.loading = false;
+            state.loadingDp = false;
             if(!action.payload.dpLink) {
                 state.error(action.payload.error);
             }
             state.dp = action.payload.dpLink;
         });
         builder.addCase(getDp.rejected, (state, action) => {
-            state.loading = false;
+            state.loadingDp = false;
             state.error = action.payload;
         });
         
+        builder.addCase(getFriends.pending, (state) => {
+            state.loadingFriends = true;
+        });
+        builder.addCase(getFriends.fulfilled, (state, action) => {
+            state.loadingFriends = false;
+            if(!action.payload.friends) {
+                state.error(action.payload.error);
+            }
+            state.friends = action.payload.friends;
+        });
+        builder.addCase(getFriends.rejected, (state, action) => {
+            state.loadingFriends = false;
+            state.error = action.payload;
+        });
     }
 })
 

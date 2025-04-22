@@ -17,7 +17,25 @@ const transporter = nodemailer.createTransport({
         user: process.env.ETHEREAL_EMAIL,
         pass: process.env.ETHEREAL_PASSWORD,
     }
-})
+});
+
+
+export const verifyToken = (req: Request, res: Response) => {
+    try {
+        const token = req.cookies.token;
+        if (!token) {
+            res.status(401).json({ error: 'No token', result: false });
+            return;
+        }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
+        res.status(200).json({ message: 'Valid token', result: true });
+        return;
+    } catch (err) {
+        console.log(err);
+        res.status(401).json({ error: 'Invalid or expired token', result: false });
+        return;
+    }
+};
 
 export const register = async (req: Request, res: Response): Promise<void> => {
     const { username, email, password, confirmPassword } = req.body;
@@ -74,8 +92,9 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         const token = jwt.sign({ email: user.email, id: user._id }, JWT_SECRET, { expiresIn: '2h' });
         res.cookie('token', token, { 
             httpOnly: true, 
-            secure: true,
-            sameSite: 'strict'
+            secure: false,
+            sameSite: 'lax',
+            path: '/'
         }); 
         const io = getSocketInstance();
         io.emit('userLoggedIn', { message: "User Logged In" });
@@ -88,7 +107,12 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 }
 
 export const logout = (req: Request, res: Response) => {
-    res.clearCookie('token');
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: false,
+        sameSite: 'lax',
+        path: '/'
+    });
     res.status(200).json({ message: "Logged out successfully"});
 }
 

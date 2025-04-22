@@ -8,11 +8,22 @@ const messageSchema = new mongoose.Schema({
     conversation: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Conversation',
-        'required': true,
+        required : true,
     },
-    userId: {
+    senderId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+        required: true,
+    }, 
+    receiverId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['not sent', 'sent', 'delivered', 'read'],
+        default: 'not sent',
         required: true,
     }
 },{ timestamps: true });
